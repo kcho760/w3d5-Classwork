@@ -21,4 +21,22 @@ class PolyTreeNode
         @parent = new_parent
     end
 
+    def add_child(child_node)
+        child_node.parent=(self)
+    end
+
+    def remove_child(child_node)
+        raise "Not a child" unless @children.include?(child_node)
+        child_node.parent= nil
+    end
+
+    def dfs(target_value)
+        return self if target.value == self.value
+        self.children.each do |child|
+            result = child.dfs(target)
+            return result if !result.nil?
+        end
+
+        nil
+    end
 end
