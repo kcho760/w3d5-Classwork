@@ -31,9 +31,9 @@ class PolyTreeNode
     end
 
     def dfs(target_value)
-        return self if target.value == self.value
+        return self if target_value == self.value
         self.children.each do |child|
-            result = child.dfs(target)
+            result = child.dfs(target_value)
             return result if !result.nil?
         end
 
