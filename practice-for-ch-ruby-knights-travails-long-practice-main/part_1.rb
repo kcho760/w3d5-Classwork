@@ -6,7 +6,7 @@ class KnightPathFinder
     def self.valid_moves(pos)
         moves = []
         row, col = pos
-        d = [[2, 1], [2, -1], [-2, 1], [-2, 1], [1, 2], [1, -2], [-1, 2], [-1, -2]]
+        d = [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 2], [-1, -2]]
         d.each do |distance|
             x = row + distance[0]
             y = col + distance[1]
