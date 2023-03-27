@@ -35,15 +35,15 @@ class KnightPathFinder
         @considered_position += moves
         moves
     end
-    def build_move_tree(node)
-        return nil if node.nil?
+    def build_move_tree(root_node)
+        return nil if root_node.nil?
         queue = []
-        queue << node
+        queue << root_node
         while !queue.empty?
             current_node = queue.shift
             positions = new_move_pos(current_node.value)
-            positions.each do |child|
-                new_child = PolyTreeNode.new(child)
+            positions.each do |child_val|
+                new_child = PolyTreeNode.new(child_val)
                 current_node.add_child(new_child)
                 queue << new_child
             end
